@@ -267,4 +267,25 @@ progress {
   cursor: default; }
 
 body {
-  color: #000; }
+  color: #000;
+  font-size: 16px; }
+
+h1 {
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  background-color: #eee; }
+
+#app {
+  padding-top: 20px;
+  margin: auto;
+  width: 90%; }
+  #app h2 {
+    padding-left: 10px; }
+  #app p {
+    padding-left: 10px; }
+  #app ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    width: 120px; }

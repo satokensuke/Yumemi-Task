@@ -4,18 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>Yumemi Task</title>
+  <title>Yumemi Task(develop)</title>
 </head>
 <body>
-
+  <h1>人口推移グラフ</h1>
   <div id="app">
-    {{ this.prefectures }}
+    <h2>都道府県</h2>
+    <!-- {{ this.prefectures }} -->
+
     <ul>
       <li v-for="pref in prefectures">
           <input type="checkbox" v-bind:value="pref.prefCode"
               v-model="checked">&nbsp;<span>{{ pref.prefName }}</span><br>
       </li>
-  </ul>
+    </ul>
+  <!-- checkされた都道府県 -->
+    <p>選択中の都道府県</p>
     <p>
       {{ checked }}
     </p>
