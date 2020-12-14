@@ -266,6 +266,7 @@ progress {
 [aria-disabled] {
   cursor: default; }
 
+/* ここから */
 body {
   color: #000;
   font-size: 16px; }
@@ -282,6 +283,8 @@ h1 {
   width: 90%; }
   #app h2 {
     padding-left: 10px; }
+    #app h2 span {
+      font-size: 16px; }
   #app p {
     padding-left: 10px; }
   #app ul li {
