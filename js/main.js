@@ -47,18 +47,37 @@
         .then(response => (this.population = response.data.result))
         .catch(error => console.log(error));
       },
+      // ハマったエラー
+      // マウント時に実行するとDOMが読み込まれていないため取得できない
       createChart() {
-        // const perYear_url_1 = 'https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode='+this.checked[0];
-        // axios
-        //   .get(perYear_url_1, { headers: { 'X-API-KEY': 'Fo5AelLTNBQbzMvA0DH7zcGATzaspMEu0IWlM99I' } })
-        //   .then(response => (this.population = response.data.result))
-        //   .catch(error => console.log(error));
+        const perYear_url_1 = 'https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode='+this.checked[0];
+        axios
+          .get(perYear_url_1, { headers: { 'X-API-KEY': 'Fo5AelLTNBQbzMvA0DH7zcGATzaspMEu0IWlM99I' } })
+          // .then(response => (this.population = response.data.result))
+          .then(response => {
+            this.population = response.data.result;
+            for (var i = 0; i < this.population.length; i++) {
+                PopulationData.push(this.population[i].value);
+            }
+            this.population = this.PopulationData;
+            console.log(this.population);
+        })
         var type = 'line';
+        // ローカルの仮データでグラフ描画成功
+        // var data = {
+        //   labels: [2010, 2011, 2012, 2013],
+        //   datasets: [{
+        //     label: 'test',
+        //     data: [180, 250, 320, 180],
+        //     borderColor: 'blue',
+        //     borderWidth: 5
+        //   }]
+        // };
         var data = {
-          labels: [2010, 2011, 2012, 2013],
+          labels: ['1980', '1985', '1990', '1995', '2000', '2005', '2010', '2015', '2020', '2025', '2030', '2035', '2040'],
           datasets: [{
             label: 'test',
-            data: [180, 250, 320, 180],
+            data: this.population.value,
             borderColor: 'blue',
             borderWidth: 5
           }]

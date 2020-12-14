@@ -25,10 +25,14 @@
     <!-- エラーメッセージ:Error in render: "TypeError: Cannot read property 'this.checked[0] -1' of null" -->
     <!-- checkしていない時nullになる．一旦放置します -->
     <p>{{ this.prefectures[this.checked[0] -1] }}</p>
-    <p>{{ this.population }}</p>
+    <!-- checkした都道府県の人口推移データをベタ書きで出力 -->
+    <!-- <p>{{ this.population }}</p> -->
 
       <!-- グラフ作成 -->
     <canvas id="my_chart"></canvas>
+
+        <!-- checkした都道府県の人口推移データをベタ書きで出力 -->
+    <!-- <p>{{ this.population }}</p> -->
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <!-- 【Vue.js】axiosを用いWebAPIからデータの取得の仕方【メモ】 -->
