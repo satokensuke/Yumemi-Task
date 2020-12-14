@@ -7,10 +7,14 @@
   <title>Yumemi Task(develop)</title>
 </head>
 <body>
-  <h1>人口推移グラフ</h1>
+  <h1>総人口推移グラフ</h1>
   <div id="app">
     <h2>都道府県</h2>
+    <!-- (test)取得した都道府県APIデータの表示 -->
     <!-- {{ this.prefectures }} -->
+
+    <!-- (test)取得した北海道の人口推移 -->
+    {{ this.population }}
 
     <ul>
       <li v-for="pref in prefectures">
