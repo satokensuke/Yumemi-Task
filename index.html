@@ -9,12 +9,23 @@
 <body>
 
   <div id="app">
-    <p>Hello {{ name }}!</p>
-    <p>PR test!
+    {{ this.prefectures }}
+    <ul>
+      <li v-for="pref in prefectures">
+          <input type="checkbox" v-bind:value="pref.prefCode"
+              v-model="checked">&nbsp;<span>{{ pref.prefName }}</span><br>
+      </li>
+  </ul>
+    <p>
+      {{ checked }}
     </p>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- 【Vue.js】axiosを用いWebAPIからデータの取得の仕方【メモ】 -->
+  <!-- https://qiita.com/ckjets/items/9f3e31f2bd7595af13a3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
