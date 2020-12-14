@@ -9,17 +9,13 @@
 <body>
   <h1>総人口推移グラフ</h1>
   <div id="app">
-    <h2>都道府県</h2>
+    <h2>都道府県<span>[ひとつだけcheckしてください(未完成)]</span></h2>
     <!-- (test)取得した都道府県APIデータの表示 -->
     <!-- {{ this.prefectures }} -->
 
-    <!-- (test)取得した北海道の人口推移 -->
-    {{ this.population }}
-
     <ul>
       <li v-for="pref in prefectures">
-          <input type="checkbox" v-bind:value="pref.prefCode"
-              v-model="checked">&nbsp;<span>{{ pref.prefName }}</span><br>
+          <input type="checkbox" v-bind:value="pref.prefCode"　v-model="checked" @change="getPopulation1Data()">&nbsp;<span>{{ pref.prefName }}</span><br>
       </li>
     </ul>
   <!-- checkされた都道府県 -->
@@ -27,6 +23,10 @@
     <p>
       {{ checked }}
     </p>
+    <p>一つ目の人口推移データ</p>
+<!-- エラーメッセージ:Error in render: "TypeError: Cannot read property 'this.checked[0] -1' of null" -->
+    <p>{{ this.prefectures[this.checked[0] -1] }}</p>
+    <p>{{ this.population }}</p>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
